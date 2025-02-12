@@ -80,14 +80,25 @@ namespace Assignment1_LinQ
 
             #region Q3
             //3. Retrieve the second number greater than 5 
-            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            var Result = Arr.Where(n => n > 5).Skip(1).FirstOrDefault();
+            //var Result = Arr.Where(n => n > 5).Skip(1).FirstOrDefault();
 
-            Console.WriteLine(Result);
+            //Console.WriteLine(Result);
 
             #endregion
 
+            #endregion
+
+            #region Aggregate Operators
+            #region Q1
+            //1.Uses Count to get the number of odd numbers in the array
+            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var Result = Arr.Count(N => N % 2 == 1);
+            Console.WriteLine(Result);
+
+            #endregion
             #endregion
 
         }
