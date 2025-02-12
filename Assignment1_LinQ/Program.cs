@@ -39,13 +39,29 @@ namespace Assignment1_LinQ
             //                where P.UnitsInStock > 0 && P.UnitPrice > 3
             //                select P;
 
+            //foreach (var product in prouducts)
+            //{
+            //    Console.WriteLine(product);
+            //}
 
             #endregion
 
-            foreach (var product in prouducts)
+            #region Q3
+            //3. Returns digits whose name is shorter than their value.
+            String[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var shortNameDigits = Arr
+            .Select((name, index) => new { Name = name, Value = index })
+            .Where(digit => digit.Name.Length < digit.Value)
+            .Select(digit => digit.Name);
+
+            foreach (var digit in shortNameDigits)
             {
-                Console.WriteLine(product);
+                Console.WriteLine(digit);
             }
+            #endregion
+
+
             #endregion
         }
     }
