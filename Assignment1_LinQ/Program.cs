@@ -435,10 +435,28 @@ namespace Assignment1_LinQ
             //});
 
             //foreach (var product in products)
-               
+
             //    Console.WriteLine(product);
             //}
 
+
+
+
+            #endregion
+
+            #region Q4
+            //4. Determine if the value of int in an array matches their position in the array.
+            //int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+
+            //var results = Arr
+            //    .Select((value, index) => new { Value = value, Index = index, InPlace = (value == index) });
+            //Console.WriteLine($"Number: In Place?");
+
+            //foreach (var item in results)
+            //{
+            //    Console.WriteLine($" {item.Value}: {item.InPlace}");
+            //}
 
 
 
