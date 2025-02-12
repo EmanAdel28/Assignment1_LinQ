@@ -176,22 +176,40 @@ namespace Assignment1_LinQ
             #endregion
 
             #region Q9
-            var categoryStock = ProductList
-                           .GroupBy(p => p.Category)
-                           .Select(g => new
-                           {
-                               Category = g.Key,
-                               TotalUnits = g.Sum(p => p.UnitsInStock)
-                           });
+            //var categoryStock = ProductList
+            //               .GroupBy(p => p.Category)
+            //               .Select(g => new
+            //               {
+            //                   Category = g.Key,
+            //                   TotalUnits = g.Sum(p => p.UnitsInStock)
+            //               });
 
-            foreach (var item in categoryStock)
+            //foreach (var item in categoryStock)
+            //{
+            //    Console.WriteLine($"Category: {item.Category}, Total Units in Stock: {item.TotalUnits}");
+            //}
+
+            #endregion
+
+            #region Q10
+            //
+            var cheapestPrices = ProductList
+                                 .GroupBy(p => p.Category)
+                                 .Select(g => new
+                                 {
+                                     Category = g.Key,
+                                     CheapestPrice = g.Min(p => p.UnitPrice)
+                                 });
+
+            foreach (var item in cheapestPrices)
             {
-                Console.WriteLine($"Category: {item.Category}, Total Units in Stock: {item.TotalUnits}");
+                Console.WriteLine($"Category: {item.Category}, Cheapest Price: {item.CheapestPrice:C}");
             }
-        
-        #endregion
-        #endregion
+            #endregion
+            #endregion
 
-    }
+
+
+        }
     }
 }
