@@ -359,16 +359,34 @@ namespace Assignment1_LinQ
             #region Q7
             //7.Sort first by-word length and then by a case -insensitive descending sort of the words in an array.
 
-            string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+            //string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            var sortedWordsDescending = Arr
-                .OrderBy(word => word.Length) // First by length
-                .ThenByDescending(word => word, StringComparer.OrdinalIgnoreCase); // Then case-insensitively (descending)
+            //var sortedWordsDescending = Arr
+            //    .OrderBy(word => word.Length) // First by length
+            //    .ThenByDescending(word => word, StringComparer.OrdinalIgnoreCase); // Then case-insensitively (descending)
 
-            foreach (var word in sortedWordsDescending)
+            //foreach (var word in sortedWordsDescending)
+            //{
+            //    Console.WriteLine(word);
+            //}
+
+
+
+            #endregion
+
+            #region Q7
+            //8. Create a list of all digits in the array whose second letter is 'i' that is reversed from the order in the original array.
+            string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var filteredAndReversed = Arr
+                .Where(word => word.Length > 1 && word[1] == 'i') 
+                .Reverse(); 
+
+            foreach (var word in filteredAndReversed)
             {
                 Console.WriteLine(word);
             }
+
 
 
 
