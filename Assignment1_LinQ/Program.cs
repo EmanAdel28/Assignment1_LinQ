@@ -535,7 +535,7 @@ namespace Assignment1_LinQ
             //    Console.WriteLine(category);
             //}
 
-            
+
 
             // 2. Produce a Sequence containing the unique first letter from both product and customer names.
             //var uniqueFirstLetters = ProductList
@@ -569,13 +569,13 @@ namespace Assignment1_LinQ
             //    .Except(CustomerList.Select(c => c.CustomerName[0]))
             //    .ToList();
 
-            
+
             //foreach (var letter in Result)
             //{
             //    Console.WriteLine(letter);
             //}
 
-            
+
 
             // 5. Create one sequence that contains the last three characters in each name of all customers and products, including any duplicates.
             //var Result = ProductList
@@ -590,6 +590,48 @@ namespace Assignment1_LinQ
 
 
             #endregion
+            #endregion
+
+            #region Quantifiers
+            //1. Determine if any of the words in dictionary_english.txt (Read dictionary_english.txt into Array of String First) contain the substring 'ei'.
+            string[] dictionaryWords = File.ReadAllLines("dictionary_english.txt");
+
+            bool containsEi = dictionaryWords.Any(word => word.Contains("ei"));
+
+            Console.WriteLine( containsEi);
+
+            //2. Return a grouped a list of products only for categories that have at least one product that is out of stock.
+            var categoriesWithOutOfStockProducts = ProductList.Where(p => p.UnitsInStock == 0).Select(p => p.Category).Distinct().ToList();
+
+            var groupedProducts = ProductList
+                .Where(p => categoriesWithOutOfStockProducts.Contains(p.Category))
+                .GroupBy(p => p.Category);
+
+           
+            foreach (var group in groupedProducts)
+            {
+                Console.WriteLine($"Category: {group.Key}");
+                foreach (var product in group)
+                {
+                    Console.WriteLine(product);
+                }
+            }
+
+
+            //3. Return a grouped a list of products only for categories that have all of their products in stock.
+            var categoriesWithAllInStock = ProductList.GroupBy(p => p.Category).Where(group => group.All(p => p.UnitsInStock > 0)).ToList();
+
+            Console.WriteLine("Categories where all products are in stock:");
+            foreach (var group in categoriesWithAllInStock)
+            {
+                Console.WriteLine($"Category: {group.Key}");
+                foreach (var product in group)
+                {
+                    Console.WriteLine(product);
+                }
+            }
+
+
             #endregion
 
 
