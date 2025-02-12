@@ -21,7 +21,7 @@ namespace Assignment1_LinQ
 
             #region LINQ - Restriction Operators
             #region Q1
-            //1. Find all products that are out of stock.
+            //1.Find all products that are out of stock.
             //var prouducts = from P in ProductList
             //                where P.UnitsInStock == 0
             //                select P;
@@ -48,21 +48,32 @@ namespace Assignment1_LinQ
 
             #region Q3
             //3. Returns digits whose name is shorter than their value.
-            String[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            //String[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            var shortNameDigits = Arr
-            .Select((name, index) => new { Name = name, Value = index })
-            .Where(digit => digit.Name.Length < digit.Value)
-            .Select(digit => digit.Name);
+            //var shortNameDigits = Arr
+            //.Select((name, index) => new { Name = name, Value = index })
+            //.Where(digit => digit.Name.Length < digit.Value)
+            //.Select(digit => digit.Name);
 
-            foreach (var digit in shortNameDigits)
-            {
-                Console.WriteLine(digit);
-            }
+            //foreach (var digit in shortNameDigits)
+            //{
+            //    Console.WriteLine(digit);
+            //}
             #endregion
 
 
             #endregion
+
+            #region Element Operators
+            #region Q1
+            // Get first Product out of Stock 
+            //var prouducts = ProductList.FirstOrDefault(P => P.UnitsInStock == 0);
+            //Console.WriteLine(prouducts);
+            #endregion
+
+           
+            #endregion
+
         }
     }
 }
