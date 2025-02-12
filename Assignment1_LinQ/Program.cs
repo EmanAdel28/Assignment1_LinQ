@@ -93,11 +93,27 @@ namespace Assignment1_LinQ
             #region Aggregate Operators
             #region Q1
             //1.Uses Count to get the number of odd numbers in the array
-            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            var Result = Arr.Count(N => N % 2 == 1);
-            Console.WriteLine(Result);
+            //var Result = Arr.Count(N => N % 2 == 1);
+            //Console.WriteLine(Result);
 
+            #endregion
+
+            #region Q2
+            //2. Return a list of customers and how many orders each has.
+
+            var customerOrderCounts = CustomerList
+           .Select(c => new
+           {
+               CustomerName = c.CustomerName,
+               OrderCount = c.Orders.Count()
+           });
+
+            foreach (var customer in customerOrderCounts)
+            {
+                Console.WriteLine($"Customer: {customer.CustomerName}, Orders: {customer.OrderCount}");
+            }
             #endregion
             #endregion
 
