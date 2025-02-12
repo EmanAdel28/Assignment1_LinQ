@@ -374,25 +374,38 @@ namespace Assignment1_LinQ
 
             #endregion
 
-            #region Q7
+            #region Q8
             //8. Create a list of all digits in the array whose second letter is 'i' that is reversed from the order in the original array.
-            string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            //string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            var filteredAndReversed = Arr
-                .Where(word => word.Length > 1 && word[1] == 'i') 
-                .Reverse(); 
+            //var filteredAndReversed = Arr
+            //    .Where(word => word.Length > 1 && word[1] == 'i') 
+            //    .Reverse(); 
 
-            foreach (var word in filteredAndReversed)
+            //foreach (var word in filteredAndReversed)
+            //{
+            //    Console.WriteLine(word);
+            //}
+
+
+
+
+            #endregion
+            #endregion
+
+            #region Transformation Operators
+            #region Q1
+            //1. Return a sequence of just the names of a list of products.
+            var productNames = ProductList.Select(p => p.ProductName);
+
+            foreach (var name in productNames)
             {
-                Console.WriteLine(word);
+                Console.WriteLine(name);
             }
 
 
-
-
             #endregion
             #endregion
-
 
 
         }
