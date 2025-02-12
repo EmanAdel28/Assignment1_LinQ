@@ -256,18 +256,33 @@ namespace Assignment1_LinQ
 
             #region Q14
             //14. Get the average price of each category's products.
-    //        var Result = ProductList
-    //.GroupBy(p => p.Category)
-    //.Select(g => new
-    //{
-    //    Category = g.Key,
-    //    AveragePrice = g.Average(p => p.UnitPrice)
-    //});
+            //        var Result = ProductList
+            //.GroupBy(p => p.Category)
+            //.Select(g => new
+            //{
+            //    Category = g.Key,
+            //    AveragePrice = g.Average(p => p.UnitPrice)
+            //});
 
-    //        foreach (var item in Result)
-    //        {
-    //            Console.WriteLine($"Category: {item.Category}, Average Price: {item.AveragePrice:C}");
-    //        }
+            //        foreach (var item in Result)
+            //        {
+            //            Console.WriteLine($"Category: {item.Category}, Average Price: {item.AveragePrice:C}");
+            //        }
+            #endregion
+            #endregion
+
+            #region Ordering Operators
+            #region Q1
+            //1. Sort a list of products by name
+            //var Products = ProductList
+            //                     .OrderBy(p => p.ProductName);
+
+            //foreach (var product in Products)
+            //{
+            //    Console.WriteLine(product);
+            //}
+
+
             #endregion
             #endregion
 
