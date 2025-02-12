@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Collections.Generic;
+using System.Security.Cryptography;
 using static Assignment1_LinQ.ListGenerator;
 namespace Assignment1_LinQ
 {
@@ -346,12 +347,30 @@ namespace Assignment1_LinQ
             #region Q6
             // Sort products first by category, then by unit price (highest to lowest)
 
-            var sortedProducts = ProductList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice); 
+            //var sortedProducts = ProductList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice); 
 
-            foreach (var product in sortedProducts)
+            //foreach (var product in sortedProducts)
+            //{
+            //    Console.WriteLine(product);
+            //}
+
+            #endregion
+
+            #region Q7
+            //7.Sort first by-word length and then by a case -insensitive descending sort of the words in an array.
+
+            string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            var sortedWordsDescending = Arr
+                .OrderBy(word => word.Length) // First by length
+                .ThenByDescending(word => word, StringComparer.OrdinalIgnoreCase); // Then case-insensitively (descending)
+
+            foreach (var word in sortedWordsDescending)
             {
-                Console.WriteLine(product);
+                Console.WriteLine(word);
             }
+
+
 
             #endregion
             #endregion
