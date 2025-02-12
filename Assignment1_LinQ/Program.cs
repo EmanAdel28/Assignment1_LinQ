@@ -302,15 +302,30 @@ namespace Assignment1_LinQ
 
             #region Q3
             // 3. Sort a list of products by units in stock from highest to lowest.
-            var sortedByStock = ProductList.OrderByDescending(p => p.UnitsInStock);
+            //var sortedByStock = ProductList.OrderByDescending(p => p.UnitsInStock);
 
-            foreach (var product in sortedByStock)
+            //foreach (var product in sortedByStock)
+            //{
+            //    Console.WriteLine(product);
+            //}
+
+
+
+            #endregion
+
+            #region Q4
+            //4. Sort a list of digits, first by length of their name, and then alphabetically by the name itself.
+
+            string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var sortedDigits = digits
+                .OrderBy(d => d.Length)  
+                .ThenBy(d => d);         
+
+            foreach (var digit in sortedDigits)
             {
-                Console.WriteLine(product);
+                Console.WriteLine(digit);
             }
-
-
-
             #endregion
             #endregion
 
