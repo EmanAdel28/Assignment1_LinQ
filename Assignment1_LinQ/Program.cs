@@ -103,16 +103,32 @@ namespace Assignment1_LinQ
             #region Q2
             //2. Return a list of customers and how many orders each has.
 
-            var customerOrderCounts = CustomerList
-           .Select(c => new
-           {
-               CustomerName = c.CustomerName,
-               OrderCount = c.Orders.Count()
-           });
+            // var customerOrderCounts = CustomerList
+            //.Select(c => new
+            //{
+            //    CustomerName = c.CustomerName,
+            //    OrderCount = c.Orders.Count()
+            //});
 
-            foreach (var customer in customerOrderCounts)
+            // foreach (var customer in customerOrderCounts)
+            // {
+            //     Console.WriteLine($"Customer: {customer.CustomerName}, Orders: {customer.OrderCount}");
+            // }
+            #endregion
+
+            #region Q3
+            //3. Return a list of categories and how many products each has
+            var categoryProductCounts = ProductList
+                                       .GroupBy(p => p.Category)
+                                       .Select(g => new
+                                        {
+                                         CategoryName = g.Key,
+                                         ProductCount = g.Count()
+                                        });
+
+            foreach (var category in categoryProductCounts)
             {
-                Console.WriteLine($"Customer: {customer.CustomerName}, Orders: {customer.OrderCount}");
+                Console.WriteLine($"Category: {category.CategoryName}, Products: {category.ProductCount}");
             }
             #endregion
             #endregion
