@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.Xml.Linq;
 using static Assignment1_LinQ.ListGenerator;
 namespace Assignment1_LinQ
 {
@@ -594,42 +595,88 @@ namespace Assignment1_LinQ
 
             #region Quantifiers
             //1. Determine if any of the words in dictionary_english.txt (Read dictionary_english.txt into Array of String First) contain the substring 'ei'.
-            string[] dictionaryWords = File.ReadAllLines("dictionary_english.txt");
+            //string[] dictionaryWords = File.ReadAllLines("dictionary_english.txt");
 
-            bool containsEi = dictionaryWords.Any(word => word.Contains("ei"));
+            //bool containsEi = dictionaryWords.Any(word => word.Contains("ei"));
 
-            Console.WriteLine( containsEi);
+            //Console.WriteLine( containsEi);
 
             //2. Return a grouped a list of products only for categories that have at least one product that is out of stock.
-            var categoriesWithOutOfStockProducts = ProductList.Where(p => p.UnitsInStock == 0).Select(p => p.Category).Distinct().ToList();
+            //var categoriesWithOutOfStockProducts = ProductList.Where(p => p.UnitsInStock == 0).Select(p => p.Category).Distinct().ToList();
 
-            var groupedProducts = ProductList
-                .Where(p => categoriesWithOutOfStockProducts.Contains(p.Category))
-                .GroupBy(p => p.Category);
+            //var groupedProducts = ProductList
+            //    .Where(p => categoriesWithOutOfStockProducts.Contains(p.Category))
+            //    .GroupBy(p => p.Category);
 
-           
-            foreach (var group in groupedProducts)
-            {
-                Console.WriteLine($"Category: {group.Key}");
-                foreach (var product in group)
-                {
-                    Console.WriteLine(product);
-                }
-            }
+
+            //foreach (var group in groupedProducts)
+            //{
+            //    Console.WriteLine($"Category: {group.Key}");
+            //    foreach (var product in group)
+            //    {
+            //        Console.WriteLine(product);
+            //    }
+            //}
 
 
             //3. Return a grouped a list of products only for categories that have all of their products in stock.
-            var categoriesWithAllInStock = ProductList.GroupBy(p => p.Category).Where(group => group.All(p => p.UnitsInStock > 0)).ToList();
+            //var categoriesWithAllInStock = ProductList.GroupBy(p => p.Category).Where(group => group.All(p => p.UnitsInStock > 0)).ToList();
 
-            Console.WriteLine("Categories where all products are in stock:");
-            foreach (var group in categoriesWithAllInStock)
+            //Console.WriteLine("Categories where all products are in stock:");
+            //foreach (var group in categoriesWithAllInStock)
+            //{
+            //    Console.WriteLine($"Category: {group.Key}");
+            //    foreach (var product in group)
+            //    {
+            //        Console.WriteLine(product);
+            //    }
+            //}
+
+
+            #endregion
+
+            #region 
+            //Get the first 3 orders from customers in Washington
+            var first3OrdersInWashington = CustomerList
+                                       .Where(c => c.City == "Washington").SelectMany(c => c.Orders).Take(3)  .ToList();
+
+            Console.WriteLine("First 3 orders from Washington:");
+            foreach (var order in first3OrdersInWashington)
             {
-                Console.WriteLine($"Category: {group.Key}");
-                foreach (var product in group)
-                {
-                    Console.WriteLine(product);
-                }
+                Console.WriteLine(order);
+
             }
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+            //2.Get all but the first 2 orders from customers in Washington.
+            var ordersExcludingFirst2 = CustomerList.Where(c => c.City == "Washington").SelectMany(c => c.Orders).Skip(2).ToList();
+
+            Console.WriteLine("Orders from Washington excluding the first 2:");
+            foreach (var order in ordersExcludingFirst2)
+            {
+                Console.WriteLine(order);
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////////////
+            
+            //3.Return elements starting from the beginning of the array until a number is hit that is less than its position in the array.
+            //int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //var result = numbers.TakeWhile((num, index) => num >= index).ToList();
+
+            //Console.WriteLine("Numbers until a number is less than its position:");
+            //Console.WriteLine(string.Join(", ", result));
+
+            /////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+            //4.Get the elements of the array starting from the first element divisible by 3.
+
+            //int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            //var result = numbers
+            //    .SkipWhile(num => num % 3 != 0) 
+            //    .ToList();
+
+            //Console.WriteLine("Numbers starting from the first multiple of 3:");
+            //Console.WriteLine(string.Join(", ", result));
 
 
             #endregion
