@@ -118,18 +118,25 @@ namespace Assignment1_LinQ
 
             #region Q3
             //3. Return a list of categories and how many products each has
-            var categoryProductCounts = ProductList
-                                       .GroupBy(p => p.Category)
-                                       .Select(g => new
-                                        {
-                                         CategoryName = g.Key,
-                                         ProductCount = g.Count()
-                                        });
+            //var categoryProductCounts = ProductList
+            //                           .GroupBy(p => p.Category)
+            //                           .Select(g => new
+            //                            {
+            //                             CategoryName = g.Key,
+            //                             ProductCount = g.Count()
+            //                            });
 
-            foreach (var category in categoryProductCounts)
-            {
-                Console.WriteLine($"Category: {category.CategoryName}, Products: {category.ProductCount}");
-            }
+            //foreach (var category in categoryProductCounts)
+            //{
+            //    Console.WriteLine($"Category: {category.CategoryName}, Products: {category.ProductCount}");
+            //}
+            #endregion
+
+            #region Q4
+            //4. Get the total of the numbers in an array.
+            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var Sum = Arr.Sum();
+            Console.WriteLine(Sum);
             #endregion
             #endregion
 
