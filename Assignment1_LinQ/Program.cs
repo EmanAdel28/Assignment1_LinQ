@@ -158,9 +158,19 @@ namespace Assignment1_LinQ
 
             #region Q7
             //7. Get the length of the longest word in dictionary_english.txt (Read dictionary_english.txt into Array of String First).
+            //string[] words = File.ReadAllLines("dictionary_english.txt");
+
+            //int shortestWordLength = words.Max(word => word.Length);
+
+            //Console.WriteLine(shortestWordLength);
+            #endregion
+
+            #region Q8
+            //8. Get the average length of the words in dictionary_english.txt (Read dictionary_english.txt into Array of String First).
+
             string[] words = File.ReadAllLines("dictionary_english.txt");
 
-            int shortestWordLength = words.Max(word => word.Length);
+            double shortestWordLength = words.Average(word => word.Length);
 
             Console.WriteLine(shortestWordLength);
             #endregion
