@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.Intrinsics.X86;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 using static Assignment1_LinQ.ListGenerator;
 namespace Assignment1_LinQ
 {
@@ -635,29 +639,29 @@ namespace Assignment1_LinQ
 
             #endregion
 
-            #region 
+            #region Partitioning Operators
             //Get the first 3 orders from customers in Washington
-            var first3OrdersInWashington = CustomerList
-                                       .Where(c => c.City == "Washington").SelectMany(c => c.Orders).Take(3)  .ToList();
+            //var first3OrdersInWashington = CustomerList
+            //                           .Where(c => c.City == "Washington").SelectMany(c => c.Orders).Take(3)  .ToList();
 
-            Console.WriteLine("First 3 orders from Washington:");
-            foreach (var order in first3OrdersInWashington)
-            {
-                Console.WriteLine(order);
+            //Console.WriteLine("First 3 orders from Washington:");
+            //foreach (var order in first3OrdersInWashington)
+            //{
+            //    Console.WriteLine(order);
 
-            }
+            //}
 
             ///////////////////////////////////////////////////////////////////////////////////////////////
             //2.Get all but the first 2 orders from customers in Washington.
-            var ordersExcludingFirst2 = CustomerList.Where(c => c.City == "Washington").SelectMany(c => c.Orders).Skip(2).ToList();
+            //var ordersExcludingFirst2 = CustomerList.Where(c => c.City == "Washington").SelectMany(c => c.Orders).Skip(2).ToList();
 
-            Console.WriteLine("Orders from Washington excluding the first 2:");
-            foreach (var order in ordersExcludingFirst2)
-            {
-                Console.WriteLine(order);
-            }
+            //Console.WriteLine("Orders from Washington excluding the first 2:");
+            //foreach (var order in ordersExcludingFirst2)
+            //{
+            //    Console.WriteLine(order);
+            //}
             ////////////////////////////////////////////////////////////////////////////////////////////////
-            
+
             //3.Return elements starting from the beginning of the array until a number is hit that is less than its position in the array.
             //int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             //var result = numbers.TakeWhile((num, index) => num >= index).ToList();
@@ -677,6 +681,49 @@ namespace Assignment1_LinQ
 
             //Console.WriteLine("Numbers starting from the first multiple of 3:");
             //Console.WriteLine(string.Join(", ", result));
+
+
+            #endregion
+
+            #region  Grouping Operators
+            //Use group by to partition a list of numbers by their remainder when divided by 5
+            //List<int> numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+            //var groupedNumbers = numbers
+            //          .GroupBy(num => num % 5) 
+            //          .OrderBy(g => g.Key); 
+
+            //foreach (var group in groupedNumbers)
+            //{
+            //    Console.WriteLine($"Numbers with Remainder {group.Key} when divided by 5: \n  {string.Join(", ", group)}");
+            //}
+
+            //Uses group by to partition a list of words by their first letter.Use dictionary_english.txt for Input
+           // string[] words = File.ReadAllLines("dictionary_english.txt");
+           // var groupedWords = words
+           //.Where(word => !string.IsNullOrWhiteSpace(word)) 
+           //.GroupBy(word => char.ToUpper(word[0])) 
+           //.OrderBy(g => g.Key); 
+
+            
+           // foreach (var group in groupedWords)
+           // {
+           //     Console.WriteLine($"Words starting with '{group.Key}': {string.Join(", ", group)}");
+           // }
+
+            //Consider this Array as an Input
+            //String[] Arr = { "from", "salt", "earn", " last", "near", "form" };
+            //Use Group By with a custom comparer that matches words that are consists of the same Characters Together
+
+            //var groupedWords = Arr
+            //.Select(word => word.Trim()) 
+            //.GroupBy(word => new string(word.OrderBy(c => c).ToArray())) 
+            //.OrderBy(g => g.Key); 
+
+          
+            //foreach (var group in groupedWords)
+            //{
+            //    Console.WriteLine($"Group: {string.Join(", ", group)}");
+            //}
 
 
             #endregion
