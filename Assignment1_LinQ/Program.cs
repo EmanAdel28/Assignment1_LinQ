@@ -316,15 +316,30 @@ namespace Assignment1_LinQ
             #region Q4
             //4. Sort a list of digits, first by length of their name, and then alphabetically by the name itself.
 
-            string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            //string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            var sortedDigits = digits
-                .OrderBy(d => d.Length)  
-                .ThenBy(d => d);         
+            //var sortedDigits = digits
+            //    .OrderBy(d => d.Length)  
+            //    .ThenBy(d => d);         
 
-            foreach (var digit in sortedDigits)
+            //foreach (var digit in sortedDigits)
+            //{
+            //    Console.WriteLine(digit);
+            //}
+            #endregion
+
+            #region Q5
+            //5. Sort first by-word length and then by a case-insensitive sort of the words in an array.
+
+            string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            var sortedWords = Arr
+                .OrderBy(word => word.Length) 
+                .ThenBy(word => word, StringComparer.OrdinalIgnoreCase);
+
+            foreach (var word in sortedWords)
             {
-                Console.WriteLine(digit);
+                Console.WriteLine(word);
             }
             #endregion
             #endregion
