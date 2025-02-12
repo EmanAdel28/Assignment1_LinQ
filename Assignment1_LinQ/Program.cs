@@ -214,12 +214,12 @@ namespace Assignment1_LinQ
                                    group p by p.Category into g
                                    let minPrice = g.Min(p => p.UnitPrice)
                                    from p in g
-                                   where p.Price == minPrice
-                                   select new { p.Category, p.Name, p.Price };
+                                   where p.UnitPrice == minPrice
+                                   select new { p.Category, p.ProductName, p.UnitPrice };
 
             foreach (var item in cheapestProducts)
             {
-                Console.WriteLine($"Category: {item.Category}, Product: {item.Name}, Price: {item.Price:C}");
+                Console.WriteLine($"Category: {item.Category}, Product: {item.ProductName}, Price: {item.UnitPrice:C}");
             }
             #endregion
             #endregion
