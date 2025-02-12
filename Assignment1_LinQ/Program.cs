@@ -168,14 +168,30 @@ namespace Assignment1_LinQ
             #region Q8
             //8. Get the average length of the words in dictionary_english.txt (Read dictionary_english.txt into Array of String First).
 
-            string[] words = File.ReadAllLines("dictionary_english.txt");
+            //string[] words = File.ReadAllLines("dictionary_english.txt");
 
-            double shortestWordLength = words.Average(word => word.Length);
+            //double shortestWordLength = words.Average(word => word.Length);
 
-            Console.WriteLine(shortestWordLength);
+            //Console.WriteLine(shortestWordLength);
             #endregion
-            #endregion
 
-        }
+            #region Q9
+            var categoryStock = ProductList
+                           .GroupBy(p => p.Category)
+                           .Select(g => new
+                           {
+                               Category = g.Key,
+                               TotalUnits = g.Sum(p => p.UnitsInStock)
+                           });
+
+            foreach (var item in categoryStock)
+            {
+                Console.WriteLine($"Category: {item.Category}, Total Units in Stock: {item.TotalUnits}");
+            }
+        
+        #endregion
+        #endregion
+
+    }
     }
 }
