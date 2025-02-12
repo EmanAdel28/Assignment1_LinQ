@@ -225,18 +225,33 @@ namespace Assignment1_LinQ
 
             #region Q12
             //12. Get the most expensive price among each category's products.
-            var expensivePrices = ProductList
-    .                             GroupBy(p => p.Category)
-                                  .Select(g => new
-                                     {
-                                       Category = g.Key,
-                                       MostExpensivePrice = g.Max(p => p.UnitPrice)
-                                     });
+            //        var expensivePrices = ProductList
+            //.                             GroupBy(p => p.Category)
+            //                              .Select(g => new
+            //                                 {
+            //                                   Category = g.Key,
+            //                                   MostExpensivePrice = g.Max(p => p.UnitPrice)
+            //                                 });
 
-            foreach (var item in expensivePrices)
-            {
-                Console.WriteLine($"Category: {item.Category}, Most Expensive Price: {item.MostExpensivePrice:C}");
-            }
+            //        foreach (var item in expensivePrices)
+            //        {
+            //            Console.WriteLine($"Category: {item.Category}, Most Expensive Price: {item.MostExpensivePrice:C}");
+            //        }
+            #endregion
+
+            #region Q13
+            //13. Get the products with the most expensive price in each category.
+            //var Result = from p in ProductList
+            //                            group p by p.Category into g
+            //                            let maxPrice = g.Max(p => p.UnitPrice)
+            //                            from p in g
+            //                            where p.UnitPrice == maxPrice
+            //                            select new { p.Category, p.Name, p.Price };
+
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine($"Category: {item.Category}, Product: {item.Name}, Price: {item.Price:C}");
+            //}
             #endregion
             #endregion
 
