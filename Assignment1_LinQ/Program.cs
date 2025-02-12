@@ -78,6 +78,16 @@ namespace Assignment1_LinQ
             //Console.WriteLine(prouducts);
             #endregion
 
+            #region Q3
+            //3. Retrieve the second number greater than 5 
+            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var Result = Arr.Where(n => n > 5).Skip(1).FirstOrDefault();
+
+            Console.WriteLine(Result);
+
+            #endregion
+
             #endregion
 
         }
