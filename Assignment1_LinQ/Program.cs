@@ -331,16 +331,28 @@ namespace Assignment1_LinQ
             #region Q5
             //5. Sort first by-word length and then by a case-insensitive sort of the words in an array.
 
-            string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+            //string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            var sortedWords = Arr
-                .OrderBy(word => word.Length) 
-                .ThenBy(word => word, StringComparer.OrdinalIgnoreCase);
+            //var sortedWords = Arr
+            //    .OrderBy(word => word.Length) 
+            //    .ThenBy(word => word, StringComparer.OrdinalIgnoreCase);
 
-            foreach (var word in sortedWords)
+            //foreach (var word in sortedWords)
+            //{
+            //    Console.WriteLine(word);
+            //}
+            #endregion
+
+            #region Q6
+            // Sort products first by category, then by unit price (highest to lowest)
+
+            var sortedProducts = ProductList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice); 
+
+            foreach (var product in sortedProducts)
             {
-                Console.WriteLine(word);
+                Console.WriteLine(product);
             }
+
             #endregion
             #endregion
 
