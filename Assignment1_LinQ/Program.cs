@@ -208,18 +208,34 @@ namespace Assignment1_LinQ
             }
             #endregion
 
-            #region 11
+            #region Q11
             //11. Get the products with the cheapest price in each category (Use Let)
-            var cheapestProducts = from p in ProductList
-                                   group p by p.Category into g
-                                   let minPrice = g.Min(p => p.UnitPrice)
-                                   from p in g
-                                   where p.UnitPrice == minPrice
-                                   select new { p.Category, p.ProductName, p.UnitPrice };
+            //var cheapestProducts = from p in ProductList
+            //                       group p by p.Category into g
+            //                       let minPrice = g.Min(p => p.UnitPrice)
+            //                       from p in g
+            //                       where p.UnitPrice == minPrice
+            //                       select new { p.Category, p.ProductName, p.UnitPrice };
 
-            foreach (var item in cheapestProducts)
+            //foreach (var item in cheapestProducts)
+            //{
+            //    Console.WriteLine($"Category: {item.Category}, Product: {item.ProductName}, Price: {item.UnitPrice:C}");
+            //}
+            #endregion
+
+            #region Q12
+            //12. Get the most expensive price among each category's products.
+            var expensivePrices = ProductList
+    .                             GroupBy(p => p.Category)
+                                  .Select(g => new
+                                     {
+                                       Category = g.Key,
+                                       MostExpensivePrice = g.Max(p => p.UnitPrice)
+                                     });
+
+            foreach (var item in expensivePrices)
             {
-                Console.WriteLine($"Category: {item.Category}, Product: {item.ProductName}, Price: {item.UnitPrice:C}");
+                Console.WriteLine($"Category: {item.Category}, Most Expensive Price: {item.MostExpensivePrice:C}");
             }
             #endregion
             #endregion
