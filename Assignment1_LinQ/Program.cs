@@ -287,13 +287,26 @@ namespace Assignment1_LinQ
 
             #region Q2
             //2. Uses a custom comparer to do a case-insensitive sort of the words in an array.
-            String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+            //String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            var sortedWords = Arr.OrderBy(word => word, StringComparer.OrdinalIgnoreCase);
+            //var sortedWords = Arr.OrderBy(word => word, StringComparer.OrdinalIgnoreCase);
 
-            foreach (var word in sortedWords)
+            //foreach (var word in sortedWords)
+            //{
+            //    Console.WriteLine(word);
+            //}
+
+
+
+            #endregion
+
+            #region Q3
+            // 3. Sort a list of products by units in stock from highest to lowest.
+            var sortedByStock = ProductList.OrderByDescending(p => p.UnitsInStock);
+
+            foreach (var product in sortedByStock)
             {
-                Console.WriteLine(word);
+                Console.WriteLine(product);
             }
 
 
