@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment1_LinQ
+{
+    internal class Product : IComparable<Product>
+    {
+        public long ProductID { get; set; }
+        public string ProductName { get; set; }
+
+        public string Category { get; set; }
+
+        public decimal UnitPrice { get; set; }
+
+        public int UnitsInStock { get; set; }
+
+        public int CompareTo(Product? other)
+        {
+            return this.UnitPrice.CompareTo(other?.UnitPrice);
+        }
+
+        public override string ToString()
+        {
+            return $"ProductID:{ProductID} ,ProdectName:{ProductName},Category:{Category} ,UnitPrice:{UnitPrice}, UnitsInStock:{UnitsInStock}";
+        }
+    }
+}
