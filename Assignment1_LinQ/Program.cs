@@ -396,12 +396,31 @@ namespace Assignment1_LinQ
             #region Transformation Operators
             #region Q1
             //1. Return a sequence of just the names of a list of products.
-            var productNames = ProductList.Select(p => p.ProductName);
+            //var productNames = ProductList.Select(p => p.ProductName);
 
-            foreach (var name in productNames)
+            //foreach (var name in productNames)
+            //{
+            //    Console.WriteLine(name);
+            //}
+
+
+            #endregion
+
+            #region Q2
+            //2. Produce a sequence of the uppercase and lowercase versions of each word in the original array (Anonymous Types).
+            String[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+
+            var word = words.Select(word => new
             {
-                Console.WriteLine(name);
+                Upper = word.ToUpper(),
+                Lower = word.ToLower()
+            });
+
+            foreach (var variant in word)
+            {
+                Console.WriteLine($"Upper: {variant.Upper}, Lower: {variant.Lower}");
             }
+
 
 
             #endregion
