@@ -253,6 +253,22 @@ namespace Assignment1_LinQ
             //    Console.WriteLine($"Category: {item.Category}, Product: {item.Name}, Price: {item.Price:C}");
             //}
             #endregion
+
+            #region Q14
+            //14. Get the average price of each category's products.
+    //        var Result = ProductList
+    //.GroupBy(p => p.Category)
+    //.Select(g => new
+    //{
+    //    Category = g.Key,
+    //    AveragePrice = g.Average(p => p.UnitPrice)
+    //});
+
+    //        foreach (var item in Result)
+    //        {
+    //            Console.WriteLine($"Category: {item.Category}, Average Price: {item.AveragePrice:C}");
+    //        }
+            #endregion
             #endregion
 
 
