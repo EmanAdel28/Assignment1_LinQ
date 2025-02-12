@@ -507,15 +507,29 @@ namespace Assignment1_LinQ
 
             #region Q7
             // 7. Select all orders where the order was made in 1998 or later
-            var orders = CustomerList
-                .SelectMany(c => c.Orders)  
-                .Where(o => o.OrderDate.Year >= 1998) 
-                .ToList();
+            //var orders = CustomerList
+            //    .SelectMany(c => c.Orders)  
+            //    .Where(o => o.OrderDate.Year >= 1998) 
+            //    .ToList();
 
-            Console.WriteLine("Orders made in 1998 or later:");
-            foreach (var order in orders)
+            //Console.WriteLine("Orders made in 1998 or later:");
+            //foreach (var order in orders)
+            //{
+            //    Console.WriteLine(order);
+            //}
+
+            #endregion
+            #endregion
+
+            #region Set Operators
+            #region Q1
+            //1. Find the unique Category names from Product List
+            var uniqueCategories = ProductList.Select(p => p.Category).Distinct().ToList();
+
+            Console.WriteLine("Unique Category Names:");
+            foreach (var category in uniqueCategories)
             {
-                Console.WriteLine(order);
+                Console.WriteLine(category);
             }
 
             #endregion
