@@ -140,15 +140,23 @@ namespace Assignment1_LinQ
             #endregion
 
             #region Q5
+            //string[] words = File.ReadAllLines("dictionary_english.txt");
+
+            //int totalCharacters = words.Sum(word => word.Length);
+
+            //Console.WriteLine($"Total number of characters in dictionary: {totalCharacters}");
+
+            #endregion
+
+            #region Q6
             string[] words = File.ReadAllLines("dictionary_english.txt");
 
-            int totalCharacters = words.Sum(word => word.Length);
+            int shortestWordLength = words.Min(word => word.Length);
 
-            Console.WriteLine($"Total number of characters in dictionary: {totalCharacters}");
-        
-        #endregion
-        #endregion
+            Console.WriteLine( shortestWordLength);
+            #endregion
+            #endregion
 
-    }
+        }
     }
 }
