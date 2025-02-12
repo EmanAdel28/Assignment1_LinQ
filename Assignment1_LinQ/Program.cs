@@ -134,12 +134,21 @@ namespace Assignment1_LinQ
 
             #region Q4
             //4. Get the total of the numbers in an array.
-            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-            var Sum = Arr.Sum();
-            Console.WriteLine(Sum);
-            #endregion
+            //int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //var Sum = Arr.Sum();
+            //Console.WriteLine(Sum);
             #endregion
 
-        }
+            #region Q5
+            string[] words = File.ReadAllLines("dictionary_english.txt");
+
+            int totalCharacters = words.Sum(word => word.Length);
+
+            Console.WriteLine($"Total number of characters in dictionary: {totalCharacters}");
+        
+        #endregion
+        #endregion
+
+    }
     }
 }
