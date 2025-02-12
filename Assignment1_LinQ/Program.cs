@@ -192,7 +192,8 @@ namespace Assignment1_LinQ
             #endregion
 
             #region Q10
-            //
+            //10. Get the cheapest price among each category's products
+
             var cheapestPrices = ProductList
                                  .GroupBy(p => p.Category)
                                  .Select(g => new
@@ -204,6 +205,21 @@ namespace Assignment1_LinQ
             foreach (var item in cheapestPrices)
             {
                 Console.WriteLine($"Category: {item.Category}, Cheapest Price: {item.CheapestPrice:C}");
+            }
+            #endregion
+
+            #region 11
+            //11. Get the products with the cheapest price in each category (Use Let)
+            var cheapestProducts = from p in ProductList
+                                   group p by p.Category into g
+                                   let minPrice = g.Min(p => p.UnitPrice)
+                                   from p in g
+                                   where p.Price == minPrice
+                                   select new { p.Category, p.Name, p.Price };
+
+            foreach (var item in cheapestProducts)
+            {
+                Console.WriteLine($"Category: {item.Category}, Product: {item.Name}, Price: {item.Price:C}");
             }
             #endregion
             #endregion
