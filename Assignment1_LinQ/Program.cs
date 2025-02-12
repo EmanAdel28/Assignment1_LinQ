@@ -482,26 +482,41 @@ namespace Assignment1_LinQ
 
             #endregion
 
-            #region Q5
+            #region Q6
             //6.Select all orders where the order total is less than 500.00.
 
-          
+
+            //var orders = CustomerList
+            //    .SelectMany(c => c.Orders)  
+            //    .Where(o => o.Total < 500.00M)  
+            //    .ToList();
+
+            //Console.WriteLine("Orders where total is less than 500:");
+            //foreach (var order in orders)
+            //{
+            //    Console.WriteLine(order);
+            //}
+
+
+
+
+
+
+
+            #endregion
+
+            #region Q7
+            // 7. Select all orders where the order was made in 1998 or later
             var orders = CustomerList
                 .SelectMany(c => c.Orders)  
-                .Where(o => o.Total < 500.00M)  
+                .Where(o => o.OrderDate.Year >= 1998) 
                 .ToList();
 
-            Console.WriteLine("Orders where total is less than 500:");
+            Console.WriteLine("Orders made in 1998 or later:");
             foreach (var order in orders)
             {
                 Console.WriteLine(order);
             }
-
-          
-
-
-
-
 
             #endregion
             #endregion
