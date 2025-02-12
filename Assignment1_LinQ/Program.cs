@@ -408,18 +408,37 @@ namespace Assignment1_LinQ
 
             #region Q2
             //2. Produce a sequence of the uppercase and lowercase versions of each word in the original array (Anonymous Types).
-            String[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+            //String[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
 
-            var word = words.Select(word => new
+            //var word = words.Select(word => new
+            //{
+            //    Upper = word.ToUpper(),
+            //    Lower = word.ToLower()
+            //});
+
+            //foreach (var variant in word)
+            //{
+            //    Console.WriteLine($"Upper: {variant.Upper}, Lower: {variant.Lower}");
+            //}
+
+
+
+            #endregion
+
+            #region Q2
+            // 3. Produce a sequence containing some properties of Products, including UnitPrice which is renamed to Price in the resulting type.
+            var products = ProductList.Select(p => new
             {
-                Upper = word.ToUpper(),
-                Lower = word.ToLower()
+                p.ProductName,
+                Price = p.UnitPrice, 
+                p.Category
             });
 
-            foreach (var variant in word)
-            {
-                Console.WriteLine($"Upper: {variant.Upper}, Lower: {variant.Lower}");
+            foreach (var product in products)
+               
+                Console.WriteLine(product);
             }
+
 
 
 
